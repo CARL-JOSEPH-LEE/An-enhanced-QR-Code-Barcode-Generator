@@ -92,4 +92,4 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 -   The [pylibdmtx](https://pypi.org/project/pylibdmtx/) library for DataMatrix code generation.
 -   The [Pillow](https://pypi.org/project/Pillow/) library for image processing.
 -   The [pdf417gen](https://pypi.org/project/pdf417gen/) library for PDF417 code generation.
--   The [pyqrcodeng](https://pypi.org/project/pyqrcodeng/) library for Aztec code generation.
+-   The [pyqrcodeng](https://pypi.org/project/pyqrcodeng/) library for Aztec code generation."# qr-barcode-generator" 
