@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, colorchooser
 import qrcode
-from barcode import EAN13, Code128, Code39, UPCA, ISBN13, PZN, JAN
+from barcode import EAN13, Code128, Code39, UPCA, ISBN13, PZN, JAN, EAN8, ISBN10, ISSN, ITF, Gs1_128
 from barcode.writer import ImageWriter
 from pylibdmtx.pylibdmtx import encode as dmtx_encode
 from PIL import Image, ImageTk, ImageDraw, ImageOps
@@ -32,6 +32,8 @@ def generate_barcode(data, barcode_type='EAN13', module_width=0.2, module_height
 
     if barcode_type == 'EAN13':
         barcode = EAN13(data, writer=writer)
+    elif barcode_type == 'EAN8':
+        barcode = EAN8(data, writer=writer)
     elif barcode_type == 'Code128':
         barcode = Code128(data, writer=writer)
     elif barcode_type == 'Code39':
@@ -40,10 +42,18 @@ def generate_barcode(data, barcode_type='EAN13', module_width=0.2, module_height
         barcode = UPCA(data, writer=writer)
     elif barcode_type == 'ISBN13':
         barcode = ISBN13(data, writer=writer)
+    elif barcode_type == 'ISBN10':
+        barcode = ISBN10(data, writer=writer)
+    elif barcode_type == 'ISSN':
+        barcode = ISSN(data, writer=writer)
     elif barcode_type == 'PZN':
         barcode = PZN(data, writer=writer)
     elif barcode_type == 'JAN':
         barcode = JAN(data, writer=writer)
+    elif barcode_type == 'ITF':
+        barcode = ITF(data, writer=writer)
+    elif barcode_type == 'GS1-128':
+        barcode = Gs1_128(data, writer=writer)
     else:
         raise ValueError("Unsupported barcode type")
 
@@ -179,7 +189,7 @@ def on_barcode_type_change(event):
     if barcode_type == 'QR Code':
         qr_settings_frame.grid()
         barcode_settings_frame.grid_remove()
-    elif barcode_type in ['EAN13', 'Code128', 'Code39', 'UPCA', 'ISBN13', 'PZN', 'JAN']:
+    elif barcode_type in ['EAN13', 'EAN8', 'Code128', 'Code39', 'UPCA', 'ISBN13', 'ISBN10', 'ISSN', 'PZN', 'JAN', 'ITF', 'GS1-128']:
         qr_settings_frame.grid_remove()
         barcode_settings_frame.grid()
     else:
@@ -188,11 +198,11 @@ def on_barcode_type_change(event):
 
 app = tk.Tk()
 app.title("Enhanced QR Code & Barcode Generator")
-app.geometry("800x1000")
-app.configure(bg='#2c3e50')
+app.geometry("900x1200")
+app.configure(bg='#34495e')
 
-window_width = 800
-window_height = 1000
+window_width = 550
+window_height = 500
 screen_width = app.winfo_screenwidth()
 screen_height = app.winfo_screenheight()
 position_top = int(screen_height/2 - window_height/2)
@@ -202,20 +212,34 @@ app.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
 style = ttk.Style()
 style.theme_use("clam")
 style.configure('TFrame', background='#2c3e50')
-style.configure('TButton', background='#e74c3c', foreground='white', font=('Helvetica', 12, 'bold'))
-style.map('TButton', background=[('active', '#d35400')])
-style.configure('TLabel', background='#2c3e50', foreground='#ecf0f1', font=('Helvetica', 12, 'bold'))
-style.configure('TEntry', font=('Helvetica', 12))
-style.configure('TCombobox', font=('Helvetica', 12))
-style.map('TCombobox', fieldbackground=[('readonly', '#34495e')], foreground=[('readonly', 'white')])
+style.configure('TButton',
+                background='#2980b9',
+                foreground='white',
+                font=('Helvetica', 14, 'bold'),
+                borderwidth=1,
+                relief="raised")
+style.map('TButton',
+          background=[('active', '#3498db')])
+style.configure('TLabel',
+                background='#34495e',
+                foreground='#ecf0f1',
+                font=('Helvetica', 14, 'bold'))
+style.configure('TEntry',
+                font=('Helvetica', 14),
+                padding=5)
+style.configure('TCombobox',
+                font=('Helvetica', 14),
+                padding=5)
+style.map('TCombobox',
+          fieldbackground=[('readonly', '#2c3e50')],
+          foreground=[('readonly', 'white')])
 
 frame = ttk.Frame(app, padding="20", style='TFrame')
 frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
-
 ttk.Label(frame, text="Select Code Type:", style='TLabel').grid(row=0, column=0, sticky=tk.W, pady=5)
 barcode_type_combobox = ttk.Combobox(frame,
-                                     values=["QR Code", "EAN13", "Code128", "Code39", "UPCA", "ISBN13", "PZN", "JAN",
-                                             "DataMatrix", "Aztec", "PDF417"], state="readonly", style='TCombobox')
+                                     values=["QR Code", "EAN13", "EAN8", "Code128", "Code39", "UPCA", "ISBN13", "ISBN10", "ISSN", "PZN", "JAN",
+                                             "ITF", "GS1-128", "DataMatrix", "Aztec", "PDF417"], state="readonly", style='TCombobox')
 barcode_type_combobox.grid(row=0, column=1, sticky=(tk.W, tk.E), pady=5)
 barcode_type_combobox.current(0)
 barcode_type_combobox.bind("<<ComboboxSelected>>", on_barcode_type_change)
