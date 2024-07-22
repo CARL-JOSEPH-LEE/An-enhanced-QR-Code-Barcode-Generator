@@ -1,3 +1,4 @@
+
 # Enhanced QR Code & Barcode Generator
 
 ## Table of Contents
@@ -6,7 +7,6 @@
 - [Installation](#installation)
 - [Requirements](#requirements)
 - [Usage](#usage)
-- [Screenshots](#screenshots)
 - [Contribution](#contribution)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -53,7 +53,7 @@ To run the Enhanced QR Code & Barcode Generator, you need to install the require
 You can install the dependencies via `pip`:
 ```bash
 pip install tkinter qrcode python-barcode pylibdmtx pillow pdf417gen pyqrcodeng
-
+``` 
 ## Usage
 
 To run the application, execute the following command in your terminal:
@@ -81,17 +81,14 @@ To run the application, execute the following command in your terminal:
     -   Click "Generate" to save the code as an image file.
     -   Click "Preview" to see a preview of the code.
 
-## Screenshots
-
-_Example of a generated QR code._
 
 ## Contribution
 
-Contributions are welcome! If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request. Please follow the contribution guidelines outlined in `CONTRIBUTING.md`.
+Contributions are welcome! If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request. 
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for more details.
+This project is licensed under the MIT License. See the LICENSE.txt for more details.
 
 ## Acknowledgements
 
