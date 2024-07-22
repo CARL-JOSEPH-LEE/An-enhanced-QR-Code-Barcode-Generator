@@ -1,5 +1,4 @@
-
-``# Enhanced QR Code & Barcode Generator
+# Enhanced QR Code & Barcode Generator
 
 ## Table of Contents
 - [Overview](#overview)
@@ -27,7 +26,7 @@ The Enhanced QR Code & Barcode Generator is a robust and versatile application d
 To run the Enhanced QR Code & Barcode Generator, you need to install the required dependencies. Follow these steps:
 
 1. **Clone the repository**:
- ```bash
+    ```bash
     git clone https://github.com/CARL-JOSEPH-LEE/qr-barcode-generator.git
     cd qr-barcode-generator
     ```
@@ -40,6 +39,7 @@ To run the Enhanced QR Code & Barcode Generator, you need to install the require
     ```bash
     pip install -r requirements.txt
     ``` 
+
 ## Requirements
 - Python 3.7 or higher
 - tkinter
@@ -52,15 +52,11 @@ To run the Enhanced QR Code & Barcode Generator, you need to install the require
 
 You can install the dependencies via `pip`:
 ```bash
-pip install tkinter qrcode python-barcode pylibdmtx pillow pdf417gen pyqrcodeng`` 
+pip install tkinter qrcode python-barcode pylibdmtx pillow pdf417gen pyqrcodeng
 
 ## Usage
 
 To run the application, execute the following command in your terminal:
-
-bash
-
-复制代码
 
 `python src/main.py` 
 
