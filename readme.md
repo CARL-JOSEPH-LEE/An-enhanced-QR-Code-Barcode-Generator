@@ -7,21 +7,32 @@
 - [Installation](#installation)
 - [Requirements](#requirements)
 - [Usage](#usage)
+- [Screenshots](#screenshots)
 - [Contribution](#contribution)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
 ## Overview
-The Enhanced QR Code & Barcode Generator is a robust and versatile application developed using Python and the Tkinter library. This tool allows users to generate various types of barcodes and QR codes, customize their appearance, preview them, and save them as image files. The supported formats include QR Code, EAN13, Code128, Code39, UPCA, ISBN13, PZN, JAN, DataMatrix, Aztec, and PDF417.
-
+The Enhanced QR Code & Barcode Generator is a powerful and versatile application developed using Python and the Tkinter library. This tool allows users to generate a wide variety of barcodes and QR codes, customize their appearance with extensive options, preview them in real-time, and save them in multiple image formats. Supported formats include QR Code, EAN13, EAN8, Code128, Code39, UPCA, ISBN13, ISBN10, ISSN, PZN, JAN, ITF, GS1-128, DataMatrix, Aztec, and PDF417. This version offers significant improvements in customization and usability, making it an indispensable tool for anyone needing robust barcode and QR code solutions.
 ## Features
-- **QR Code Generation**: Create QR codes with customizable versions, error correction levels, box sizes, and border sizes.
-- **Barcode Generation**: Generate different types of barcodes with adjustable module width, module height, font size, and text distance.
-- **DataMatrix, Aztec, and PDF417 Codes**: Support for additional 2D barcode formats.
-- **Color Customization**: Choose custom fill and background colors for the codes.
-- **Preview Functionality**: Preview the generated codes before saving.
-- **Save Options**: Save the generated codes as PNG, JPG, or SVG files.
 
+-   **QR Code Generation**: Create QR codes with customizable parameters such as versions (1-40), error correction levels (L, M, Q, H), box sizes, and border sizes. This ensures the generated QR codes meet the specific needs and constraints of different applications.
+    
+-   **Barcode Generation**: Generate an extensive range of barcodes including EAN13, EAN8, Code128, Code39, UPCA, ISBN13, ISBN10, ISSN, PZN, JAN, ITF, and GS1-128. Adjust parameters such as module width, module height, font size, and text distance to fine-tune the barcode appearance for various use cases.
+    
+-   **DataMatrix, Aztec, and PDF417 Codes**: Support for additional 2D barcode formats like DataMatrix, Aztec, and PDF417, expanding the range of encoding options available to users.
+    
+-   **Color Customization**: Choose custom fill and background colors for the generated codes, allowing for personalized and visually distinct barcodes and QR codes.
+    
+-   **Preview Functionality**: Preview the generated codes in a dedicated preview window before saving, ensuring the output meets the desired specifications and appearance.
+    
+-   **Save Options**: Save the generated codes in various formats including PNG, JPG, and SVG, providing flexibility in how the codes are used and shared.
+    
+-   **Error Handling and Validation**: Robust error handling and input validation ensure that the data entered for generating codes is correct and meets the required standards, preventing common mistakes and ensuring high-quality output.
+    
+-   **User-Friendly Interface**: The application features an intuitive and user-friendly interface with clear instructions and easy-to-navigate settings, making it accessible to both novice and experienced users.
+    
+-   **Customizable Settings**: Extensive customization options for both QR codes and barcodes, including detailed settings for module dimensions, text formatting, and error correction, ensuring that the generated codes are perfectly tailored to user needs.
 ## Installation
 To run the Enhanced QR Code & Barcode Generator, you need to install the required dependencies. Follow these steps:
 
@@ -81,6 +92,10 @@ To run the application, execute the following command in your terminal:
     -   Click "Generate" to save the code as an image file.
     -   Click "Preview" to see a preview of the code.
 
+## Screenshots
+Here's how the application looks:
+![Preview](images/preview.png)
+![Main](images/main.png)
 
 ## Contribution
 
