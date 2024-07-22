@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) [2024] [CARL JOSEPH LEE]
+Copyright (c) 2024 CARL JOSEPH LEE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+ADDITIONAL TERMS:
+
+1. This software shall be used for Good, not Evil.
+2. Contributions to this project are welcomed, and contributors are encouraged to share improvements with the community.
+3. Commercial use of this software is allowed, provided that the original license and copyright notice are included in all copies or substantial portions of the Software.
