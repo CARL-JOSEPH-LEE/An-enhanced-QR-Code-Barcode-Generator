@@ -12,6 +12,7 @@ import ttkbootstrap as ttkb
 from reportlab.pdfgen import canvas
 import base64
 import svgwrite
+from reportlab.lib.utils import ImageReader
 
 
 class BarcodeGenerator:
@@ -24,12 +25,10 @@ class BarcodeGenerator:
         self.root.geometry("800x800")
         self.root.configure(bg='#1e90ff')
 
-
         style = ttkb.Style(theme="flatly")
         frame = ttk.Frame(self.root, padding="20", style='TFrame')
         frame.grid(row=0, column=0, sticky="")
         frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
-
 
         ttk.Label(frame, text="Select Code Type:", style='TLabel').grid(row=0, column=0, sticky=tk.W, pady=5)
         self.barcode_type_combobox = ttk.Combobox(frame,
@@ -41,11 +40,9 @@ class BarcodeGenerator:
         self.barcode_type_combobox.current(0)
         self.barcode_type_combobox.bind("<<ComboboxSelected>>", self.on_barcode_type_change)
 
-
         ttk.Label(frame, text="Enter Data:", style='TLabel').grid(row=1, column=0, sticky=tk.W, pady=5)
         self.data_entry = ttk.Entry(frame, width=40, style='TEntry')
         self.data_entry.grid(row=1, column=1, sticky=(tk.W, tk.E), pady=5)
-
 
         self.qr_settings_frame = ttk.Frame(frame, style='TFrame')
         self.qr_settings_frame.grid(row=2, column=0, columnspan=2, pady=10, sticky=(tk.W, tk.E))
@@ -102,7 +99,6 @@ class BarcodeGenerator:
         self.text_distance_entry.grid(row=3, column=1, sticky=(tk.W, tk.E), pady=5)
         self.text_distance_entry.insert(0, "5")
 
-
         ttk.Label(frame, text="Fill Color:", style='TLabel').grid(row=3, column=0, sticky=tk.W, pady=5)
         self.fill_color_btn = tk.Button(frame, bg="black", command=lambda: self.choose_color(self.fill_color_btn),
                                         relief=tk.RAISED, bd=5, activebackground="#3498db")
@@ -112,7 +108,6 @@ class BarcodeGenerator:
         self.back_color_btn = tk.Button(frame, bg="white", command=lambda: self.choose_color(self.back_color_btn),
                                         relief=tk.RAISED, bd=5, activebackground="#3498db")
         self.back_color_btn.grid(row=4, column=1, sticky=(tk.W, tk.E), pady=5)
-
 
         self.batch_frame = ttk.Frame(frame, style='TFrame')
         self.batch_frame.grid(row=5, column=0, columnspan=2, pady=10, sticky=(tk.W, tk.E))
@@ -126,7 +121,6 @@ class BarcodeGenerator:
         self.batch_entry.grid(row=0, column=1, sticky=(tk.W, tk.E), pady=5)
         self.batch_entry.insert(0, "data1,data2,data3")  # Placeholder for batch data
 
-        
         button_frame = ttk.Frame(frame, style='TFrame')
         button_frame.grid(row=12, column=0, columnspan=2, pady=10)
 
@@ -140,15 +134,12 @@ class BarcodeGenerator:
                                    activebackground="#3498db", bg="SystemButtonFace", fg="black")
         preview_button.grid(row=0, column=1, padx=5)
 
-        
         self.add_button_effects(generate_button)
         self.add_button_effects(preview_button)
 
     def add_button_effects(self, button):
         button.bind("<Enter>", lambda e: button.config(bg="#2980b9", relief=tk.SUNKEN))
         button.bind("<Leave>", lambda e: button.config(bg="SystemButtonFace", relief=tk.RAISED))
-
-
 
     def on_barcode_type_change(self, event):
         barcode_type = self.barcode_type_combobox.get()
@@ -169,11 +160,9 @@ class BarcodeGenerator:
             btn.config(bg=color_code)
 
     def on_generate_or_preview(self, preview=False):
-        
         fill_color = self.fill_color_btn['bg'] if self.fill_color_btn['bg'] != "SystemButtonFace" else "black"
         back_color = self.back_color_btn['bg'] if self.back_color_btn['bg'] != "SystemButtonFace" else "white"
 
-        
         if fill_color == "SystemButtonFace":
             fill_color = "black"
         if back_color == "SystemButtonFace":
@@ -195,6 +184,14 @@ class BarcodeGenerator:
                                                                               ("WEBP files", "*.webp"),
                                                                               ("SVG files", "*.svg"),
                                                                               ("PDF files", "*.pdf"),
+                                                                              ("EPS files", "*.eps"),
+                                                                              ("PBM files", "*.pbm"),
+                                                                              ("PGM files", "*.pgm"),
+                                                                              ("PPM files", "*.ppm"),
+                                                                              ("XBM files", "*.xbm"),
+                                                                              ("XPM files", "*.xpm"),
+                                                                              ("PCX files", "*.pcx"),
+                                                                              ("TGA files", "*.tga"),
                                                                               ("All files", "*.*")])
                         if output_path:
                             self.save_image(img, output_path)
@@ -214,6 +211,14 @@ class BarcodeGenerator:
                                                                           ("WEBP files", "*.webp"),
                                                                           ("SVG files", "*.svg"),
                                                                           ("PDF files", "*.pdf"),
+                                                                          ("EPS files", "*.eps"),
+                                                                          ("PBM files", "*.pbm"),
+                                                                          ("PGM files", "*.pgm"),
+                                                                          ("PPM files", "*.ppm"),
+                                                                          ("XBM files", "*.xbm"),
+                                                                          ("XPM files", "*.xpm"),
+                                                                          ("PCX files", "*.pcx"),
+                                                                          ("TGA files", "*.tga"),
                                                                           ("All files", "*.*")])
                     if output_path:
                         self.save_image(img, output_path)
@@ -342,33 +347,54 @@ class BarcodeGenerator:
             elif extension == 'bmp':
                 img.save(file_path, format='BMP')
             elif extension == 'gif':
+                img = img.convert("P", palette=Image.ADAPTIVE)
                 img.save(file_path, format='GIF')
-            elif extension == 'tiff' or extension == 'tif':
+            elif extension in ['tiff', 'tif']:
                 img.save(file_path, format='TIFF')
             elif extension == 'ico':
                 img.save(file_path, format='ICO')
             elif extension == 'webp':
                 img.save(file_path, format='WEBP')
+            elif extension in ['jpg', 'jpeg']:
+                img.save(file_path, format='JPEG')
+            elif extension == 'eps':
+                img.save(file_path, format='EPS')
+            elif extension == 'pbm':
+                img.save(file_path, format='PBM')
+            elif extension == 'pgm':
+                img.save(file_path, format='PGM')
+            elif extension == 'ppm':
+                img.save(file_path, format='PPM')
+            elif extension == 'xbm':
+                img.save(file_path, format='XBM')
+            elif extension == 'xpm':
+                img.save(file_path, format='XPM')
+            elif extension == 'pcx':
+                img.save(file_path, format='PCX')
+            elif extension == 'tga':
+                img.save(file_path, format='TGA')
             else:
-                img.save(file_path)
+                img.save(file_path, format='PNG')
             messagebox.showinfo("Success", f"Image saved successfully to {file_path}")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save image: {e}")
 
     def save_as_pdf(self, img, file_path):
-        pdf_canvas = canvas.Canvas(file_path)
-        buffer = BytesIO()
-        img.save(buffer, format='PNG')
-        buffer.seek(0)
-        pdf_canvas.drawImage(buffer, 0, 0, width=img.width, height=img.height)
-        pdf_canvas.save()
+        try:
+            buffer = BytesIO()
+            img.save(buffer, format='PNG')
+            buffer.seek(0)
+            pdf_canvas = canvas.Canvas(file_path, pagesize=(img.width, img.height))
+            pdf_canvas.drawImage(ImageReader(buffer), 0, 0, width=img.width, height=img.height)
+            pdf_canvas.showPage()
+            pdf_canvas.save()
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to save PDF: {e}")
 
     def save_as_svg(self, img, file_path):
         buffer = BytesIO()
         img.save(buffer, format='PNG')
         buffer.seek(0)
-
-        # Convert the PNG to SVG using svgwrite
         dwg = svgwrite.Drawing(file_path, profile='tiny', size=img.size)
         image_data = buffer.getvalue()
         image_base64 = base64.b64encode(image_data).decode('utf-8')
@@ -385,8 +411,7 @@ class BarcodeGenerator:
         img.thumbnail((600, 600), Image.LANCZOS)
         tk_img = ImageTk.PhotoImage(img)
 
-        preview_canvas.create_image(300, 300, image=tk_img)
-
+        preview_canvas.create_image(300, 300, image=tk_img, anchor=tk.CENTER)
         preview_canvas.image = tk_img
         preview_window.mainloop()
 
