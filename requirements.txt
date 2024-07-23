@@ -5,5 +5,5 @@ pylibdmtx==0.1.10
 pdf417gen==0.8.0
 PyQRCodeNG==1.3.6
 ttkbootstrap==1.10.0
-reportlab==3.6.12
+reportlab==3.6.13
 svgwrite==1.4.1
