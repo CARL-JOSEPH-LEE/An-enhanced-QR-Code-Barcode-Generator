@@ -2,18 +2,21 @@
 # Enhanced QR Code & Barcode Generator
 
 ## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Requirements](#requirements)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Contribution](#contribution)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+
+-   [Overview](#overview)
+-   [Features](#features)
+-   [Installation](#installation)
+-   [Requirements](#requirements)
+-   [Usage](#usage)
+-   [Screenshots](#screenshots)
+-   [Contribution](#contribution)
+-   [License](#license)
+-   [Acknowledgements](#acknowledgements)
 
 ## Overview
+
 The Enhanced QR Code & Barcode Generator is a powerful and versatile application developed using Python and the Tkinter library. This tool allows users to generate a wide variety of barcodes and QR codes, customize their appearance with extensive options, preview them in real-time, and save them in multiple image formats. Supported formats include QR Code, EAN13, EAN8, Code128, Code39, UPCA, ISBN13, ISBN10, ISSN, PZN, JAN, ITF, GS1-128, DataMatrix, Aztec, and PDF417. This version offers significant improvements in customization and usability, making it an indispensable tool for anyone needing robust barcode and QR code solutions.
+
 ## Features
 
 -   **QR Code Generation**: Create QR codes with customizable parameters such as versions (1-40), error correction levels (L, M, Q, H), box sizes, and border sizes. This ensures the generated QR codes meet the specific needs and constraints of different applications.
@@ -26,33 +29,40 @@ The Enhanced QR Code & Barcode Generator is a powerful and versatile application
     
 -   **Preview Functionality**: Preview the generated codes in a dedicated preview window before saving, ensuring the output meets the desired specifications and appearance.
     
--   **Save Options**: Save the generated codes in various formats including PNG, JPG and so on, providing flexibility in how the codes are used and shared.
+-   **Save Options**: Save the generated codes in various formats including PNG, JPG, BMP, GIF, TIFF, ICO, WEBP, SVG, PDF, EPS, PBM, PGM, PPM, XBM, XPM, PCX, and TGA, providing flexibility in how the codes are used and shared.
     
 -   **Error Handling and Validation**: Robust error handling and input validation ensure that the data entered for generating codes is correct and meets the required standards, preventing common mistakes and ensuring high-quality output.
     
 -   **User-Friendly Interface**: The application features an intuitive and user-friendly interface with clear instructions and easy-to-navigate settings, making it accessible to both novice and experienced users.
     
--   **Customizable Settings**: Extensive customization options for both QR codes and barcodes, including detailed settings for module dimensions, text formatting, and error correction, ensuring that the generated codes are perfectly tailored to user needs.
+-   **Batch Generation**: Support for generating multiple QR codes or barcodes in a batch, significantly speeding up workflows that require numerous codes.
+    
+-   **Logo Embedding**: Ability to embed logos or images into QR codes, enhancing brand recognition and aesthetics.
+    
+-   **Template System**: Save and load templates for frequently used settings, making the generation process faster and more efficient.
+    
+
 ## Installation
+
 To run the Enhanced QR Code & Barcode Generator, you need to install the required dependencies. Follow these steps:
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/CARL-JOSEPH-LEE/qr-barcode-generator.git
-    cd qr-barcode-generator
-    ```
-2. **Create a virtual environment**:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    ```
-3. **Install the dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ``` 
+1.  **Clone the repository**:
+
+    `git clone https://github.com/CARL-JOSEPH-LEE/An-enhanced-QR-Code-Barcode-Generator.git
+    cd An-enhanced-QR-Code-Barcode-Generator` 
+    
+2.  **Create a virtual environment**:
+
+    `python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate` 
+    
+3.  **Install the dependencies**:
+    
+    `pip install -r requirements.txt` 
+    
 
 ## Requirements
-Pillow==10.3.0
+`Pillow==10.3.0
 qrcode==7.4.2
 python-barcode==0.15.1
 pylibdmtx==0.1.10
@@ -60,13 +70,12 @@ pdf417gen==0.8.0
 PyQRCodeNG==1.3.6
 ttkbootstrap==1.10.0
 reportlab==4.2.2
-svgwrite==1.4.3
-
+svgwrite==1.4.3` 
 
 You can install the dependencies via `pip`:
-```bash
-pip install tkinter qrcode python-barcode pylibdmtx pillow pdf417gen pyqrcodeng ttkbootstrap reportlab svgwrite
-``` 
+
+`pip install tkinter qrcode python-barcode pylibdmtx pillow pdf417gen pyqrcodeng ttkbootstrap reportlab svgwrite` 
+
 ## Usage
 
 To run the application, execute the following command in your terminal:
@@ -90,18 +99,21 @@ To run the application, execute the following command in your terminal:
 5.  **Color Customization**:
     -   Fill Color
     -   Background Color
-6.  **Generate or Preview**:
+6.  **Batch Generation**:
+    -   Toggle batch export and enter data separated by commas for batch processing.
+7.  **Embed Logo**:
+    -   Option to embed a logo or image into the QR code for enhanced branding.
+8.  **Generate or Preview**:
     -   Click "Generate" to save the code as an image file.
     -   Click "Preview" to see a preview of the code.
 
 ## Screenshots
-Here's how the application looks:
-![Preview](images/preview.png)
-![Main](images/main.png)
+
+Here's how the application looks: ![Preview](images/preview.png) ![Main](images/main.png)
 
 ## Contribution
 
-Contributions are welcome! If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request. 
+Contributions are welcome! If you have suggestions for improvements or new features, feel free to create an issue or submit a pull request.
 
 ## License
 
