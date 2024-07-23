@@ -26,7 +26,7 @@ The Enhanced QR Code & Barcode Generator is a powerful and versatile application
     
 -   **Preview Functionality**: Preview the generated codes in a dedicated preview window before saving, ensuring the output meets the desired specifications and appearance.
     
--   **Save Options**: Save the generated codes in various formats including PNG, JPG, and SVG, providing flexibility in how the codes are used and shared.
+-   **Save Options**: Save the generated codes in various formats including PNG, JPG and so on, providing flexibility in how the codes are used and shared.
     
 -   **Error Handling and Validation**: Robust error handling and input validation ensure that the data entered for generating codes is correct and meets the required standards, preventing common mistakes and ensuring high-quality output.
     
@@ -52,18 +52,20 @@ To run the Enhanced QR Code & Barcode Generator, you need to install the require
     ``` 
 
 ## Requirements
-- Python 3.7 or higher
-- tkinter
-- qrcode
-- python-barcode
-- pylibdmtx
-- pillow
-- pdf417gen
-- pyqrcodeng
+Pillow==10.3.0
+qrcode==7.4.2
+python-barcode==0.15.1
+pylibdmtx==0.1.10
+pdf417gen==0.8.0
+PyQRCodeNG==1.3.6
+ttkbootstrap==1.10.0
+reportlab==3.6.12
+svgwrite==1.4.1
+
 
 You can install the dependencies via `pip`:
 ```bash
-pip install tkinter qrcode python-barcode pylibdmtx pillow pdf417gen pyqrcodeng
+pip install tkinter qrcode python-barcode pylibdmtx pillow pdf417gen pyqrcodeng ttkbootstrap reportlab svgwrite
 ``` 
 ## Usage
 
