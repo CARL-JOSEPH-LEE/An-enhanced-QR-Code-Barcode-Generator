@@ -115,3 +115,6 @@ This project is licensed under the MIT License. See the LICENSE.txt for more det
 -   The [Pillow](https://pypi.org/project/Pillow/) library for image processing.
 -   The [pdf417gen](https://pypi.org/project/pdf417gen/) library for PDF417 code generation.
 -   The [pyqrcodeng](https://pypi.org/project/pyqrcodeng/) library for Aztec code generation.
+-   The [ttkbootstrap](https://pypi.org/project/ttkbootstrap/) library for enhancing Tkinter's GUI style.
+-   The [reportlab](https://pypi.org/project/reportlab/) library for PDF file generation.
+-   The [svgwrite](https://pypi.org/project/svgwrite/) library for SVG file generation.
