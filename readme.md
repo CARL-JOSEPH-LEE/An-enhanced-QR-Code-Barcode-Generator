@@ -59,8 +59,8 @@ pylibdmtx==0.1.10
 pdf417gen==0.8.0
 PyQRCodeNG==1.3.6
 ttkbootstrap==1.10.0
-reportlab==3.6.12
-svgwrite==1.4.1
+reportlab==4.2.2
+svgwrite==1.4.3
 
 
 You can install the dependencies via `pip`:
