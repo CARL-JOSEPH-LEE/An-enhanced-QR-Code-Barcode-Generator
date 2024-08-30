@@ -1,6 +1,8 @@
 
 # Enhanced QR Code & Barcode Generator
 
+![封面图](images/main.png)
+
 ## Table of Contents
 
 -   [Overview](#overview)
@@ -109,7 +111,7 @@ To run the application, execute the following command in your terminal:
 
 ## Screenshots
 
-Here's how the application looks: ![Preview](images/preview.png) ![Main](images/main.png)
+![Preview](images/preview.png)
 
 ## Contribution
 
@@ -130,3 +132,10 @@ This project is licensed under the MIT License. See the LICENSE.txt for more det
 -   The [ttkbootstrap](https://pypi.org/project/ttkbootstrap/) library for enhancing Tkinter's GUI style.
 -   The [reportlab](https://pypi.org/project/reportlab/) library for PDF file generation.
 -   The [svgwrite](https://pypi.org/project/svgwrite/) library for SVG file generation.
+
+
+[![CARL-JOSEPH-LEE's GitHub stats](https://github-readme-stats.vercel.app/api?username=CARL-JOSEPH-LEE&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
+
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=CARL-JOSEPH-LEE&theme=dark)](https://git.io/streak-stats)
+
+![Profile views](https://komarev.com/ghpvc/?username=CARL-JOSEPH-LEE&color=blue)
